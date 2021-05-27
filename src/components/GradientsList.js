@@ -1,5 +1,5 @@
 import Gradient from "./Gradient"
-import { gradients } from "../gradients"
+// import { gradients } from "../gradients"
 
 const GradientsList = (props) => {
   const { filter, setFilter } = props
