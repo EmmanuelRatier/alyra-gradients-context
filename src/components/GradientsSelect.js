@@ -1,8 +1,8 @@
 import { useContext } from 'react'
-import { FilterContext } from '../context/FilterContext'
+import { GradientsContext } from '../context/GradientsContext'
 
 const GradientsSelect = () => {
-  const { tags, filter, setFilter } = useContext(FilterContext)
+  const { tags, filter, setFilter } = useContext(GradientsContext)
 
   const handleSelectChange = (e) => {
     setFilter(e.target.value)

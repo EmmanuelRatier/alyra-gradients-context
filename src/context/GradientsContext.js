@@ -4,10 +4,10 @@ import { gradientsReducer } from '../reducers/gradientsReducer'
 
 
 // créer et exporter ("named") FilterContext object
-export const FilterContext = createContext()
+export const GradientsContext = createContext()
 
 /* le component-provider qui embrassera la partie de notre app où on utilise ce context */
-export const FilterContextProvider = ({ children }) => {
+export const GradientsContextProvider = ({ children }) => {
 
   const [filter, setFilter] = useState("all")
 
@@ -33,7 +33,6 @@ export const FilterContextProvider = ({ children }) => {
       })
       .then((data) => {
         dispatch({ type: "FETCH_SUCCESS", payload: data });
-        console.log(data)
       })
       .catch((error) => {
         dispatch({ type: "FETCH_FAILURE", payload: error.message });
@@ -59,11 +58,12 @@ export const FilterContextProvider = ({ children }) => {
     return listTagsUnique
   }
   const tags = allTags(colors);
-  console.log(tags)
+  // console.log(tags)
+  // console.log(colors)
 
   return (
-    <FilterContext.Provider value={{ tags, filter, setFilter }}>
+    <GradientsContext.Provider value={{ tags, filter, setFilter, colors }}>
       {children}
-    </FilterContext.Provider>
+    </GradientsContext.Provider>
   )
 }
