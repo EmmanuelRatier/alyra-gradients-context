@@ -17,6 +17,11 @@ export const gradientsReducer = (state, action) => {
         loading: false,
         error: action.payload
       }
+    case 'CHANGE_FILTER':
+      return {
+        ...state,
+        filter: action.payload,
+      }
     default:
       throw new Error(`Unsupported action type ${action.type}`);
   }

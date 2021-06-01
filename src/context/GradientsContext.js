@@ -1,5 +1,4 @@
-import { useState, createContext } from "react"
-import { useReducer, useEffect } from "react"
+import { useReducer, useEffect, createContext, useState } from "react"
 import { gradientsReducer } from '../reducers/gradientsReducer'
 
 
@@ -59,11 +58,12 @@ export const GradientsContextProvider = ({ children }) => {
   }
   const tags = allTags(colors);
   // console.log(tags)
-  // console.log(colors)
+  console.log(colors)
 
   return (
-    <GradientsContext.Provider value={{ tags, filter, setFilter, colors }}>
+    <GradientsContext.Provider value={{ tags, colors, filter, setFilter, loading }}>
       {children}
+      {loading && <p className="text-center">loading...</p>}
     </GradientsContext.Provider>
   )
 }
